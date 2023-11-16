@@ -4,17 +4,27 @@
   "version": "0.1.0",
   "scripts": {
     "build": "rimraf dist pkg && webpack",
-    "start": "rimraf dist pkg && webpack-dev-server --open -d",
+    "start": "rimraf dist pkg && webpack-dev-server -d",
     "test": "cargo test && wasm-pack test --headless",
-    "tauri":"tauri"
+    "tauri": "tauri",
+    "dev": "npm run tauri dev",
+    "dev:vite": "vite"
   },
   "devDependencies": {
     "@tauri-apps/cli": "^1.5.6",
+    "@vue/compiler-sfc": "^3.3.8",
     "@wasm-tool/wasm-pack-plugin": "^1.1.0",
     "copy-webpack-plugin": "^5.0.3",
+    "css-loader": "^6.8.1",
     "rimraf": "^3.0.0",
+    "style-loader": "^3.3.3",
+    "vite": "^5.0.0",
+    "vue-loader": "^17.3.1",
     "webpack": "^4.42.0",
     "webpack-cli": "^3.3.3",
     "webpack-dev-server": "^3.7.1"
+  },
+  "dependencies": {
+    "vue": "^3.3.8"
   }
 }

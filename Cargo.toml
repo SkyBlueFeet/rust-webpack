@@ -8,6 +8,9 @@ categories = ["wasm"]
 readme = "README.md"
 edition = "2018"
 
+[workspace]
+members = ["src-tauri"]
+
 [lib]
 crate-type = ["cdylib"]
 
