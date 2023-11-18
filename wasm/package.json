@@ -1,0 +1,16 @@
+{
+  "name": "wasm-lib",
+  "version": "1.0.0",
+  "description": "wasm打包",
+  "main": "pkg/index.js",
+  "typings": "pkg/index.d.ts",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "skybluefeet",
+  "license": "MIT",
+  "types": "./pkg/index.d.ts"
+}

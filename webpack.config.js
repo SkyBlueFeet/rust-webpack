@@ -3,13 +3,18 @@ const CopyPlugin = require("copy-webpack-plugin");
 const WasmPackPlugin = require("@wasm-tool/wasm-pack-plugin");
 const sfc = require('@vue/compiler-sfc')
 const { VueLoaderPlugin } = require('vue-loader')
+// const webpack = require('webpack')
 
 const dist = path.resolve(__dirname, "dist");
 
+
+/**
+ * @type {import("webpack-dev-server").WebpackConfiguration}
+ */
 module.exports = {
   mode: "production",
   entry: {
-    index: "./js/index.js"
+    index: "./view/index.js"
   },
   output: {
     path: dist,
@@ -18,6 +23,10 @@ module.exports = {
   devServer: {
     contentBase: dist,
   },
+  // experiments: {
+  //   syncWebAssembly: true
+  // },
+  // target: ["web", "es2020"],
   module: {
     rules: [
       {
@@ -44,7 +53,8 @@ module.exports = {
 
     new VueLoaderPlugin(),
     new WasmPackPlugin({
-      crateDirectory: __dirname,
+      crateDirectory: path.resolve(__dirname, 'wasm'),
+      outDir: path.resolve(__dirname, 'wasm', 'pkg'),
     }),
   ]
 };

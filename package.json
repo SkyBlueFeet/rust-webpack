@@ -25,6 +25,7 @@
     "webpack-dev-server": "^3.7.1"
   },
   "dependencies": {
-    "vue": "^3.3.8"
+    "vue": "^3.3.8",
+    "@tauri-apps/api": "^1.5.1"
   }
 }
