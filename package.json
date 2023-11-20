@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
+    "@tauri-apps/api": "^1.5.1",
     "@tauri-apps/cli": "^1.5.6",
     "@vue/compiler-sfc": "^3.3.8",
     "@wasm-tool/wasm-pack-plugin": "^1.7.0",

@@ -9,3 +9,5 @@ dest
 *.lock
 
 package-lock.json
+
+*.log
