@@ -1,30 +1,29 @@
 {
-  "author": "skybluefeet",
-  "name": "rust-webpack",
-  "version": "0.1.0",
+  "name": "rust-demo5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "build": "rimraf dist pkg && webpack",
-    "start": "rimraf dist pkg && webpack-dev-server -d",
-    "test": "cargo test && wasm-pack test --headless",
-    "tauri": "tauri",
-    "dev": "npm run tauri dev",
-    "dev:vite": "vite"
+    "serve": "webpack serve",
+    "dev": "tauri dev"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
   "devDependencies": {
     "@tauri-apps/cli": "^1.5.6",
     "@vue/compiler-sfc": "^3.3.8",
-    "@wasm-tool/wasm-pack-plugin": "^1.1.0",
+    "@wasm-tool/wasm-pack-plugin": "^1.7.0",
     "copy-webpack-plugin": "^5.0.3",
     "css-loader": "^5.2.7",
+    "html-webpack-plugin": "^5.5.3",
     "rimraf": "^3.0.0",
     "style-loader": "^2.0.0",
+    "vue": "^3.3.8",
     "vue-loader": "^17.3.1",
-    "webpack": "^4.42.0",
-    "webpack-cli": "^3.3.3",
-    "webpack-dev-server": "^3.7.1"
-  },
-  "dependencies": {
-    "@tauri-apps/api": "^1.5.1",
-    "vue": "^3.3.8"
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
   }
 }

@@ -11,6 +11,6 @@
         },
         "checkJs": true
     },
-    "include": ["view/**/*","wasm/**/*"],
+    "include": ["src/**/*","wasm/**/*"],
     "exclude": ["node+modules","target","static","wasm/**/*.rs"]
 }

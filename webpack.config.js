@@ -1,64 +1,52 @@
-const path = require("path");
-const CopyPlugin = require("copy-webpack-plugin");
-const WasmPackPlugin = require("@wasm-tool/wasm-pack-plugin");
-const sfc = require('@vue/compiler-sfc')
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const WasmPackPlugin = require("@wasm-tool/wasm-pack-plugin")
 const { VueLoaderPlugin } = require('vue-loader')
-// const webpack = require('webpack')
 
-const dist = path.resolve(__dirname, "dist");
-
-
-/**
- * @type {any}
- */
 module.exports = {
-  mode: "production",
-  entry: {
-    index: "./view/index.js"
-  },
-  output: {
-    path: dist,
-    filename: "[name].js"
-  },
-  devServer: {
-    contentBase: dist,
-  },
-  // experiments: {
-  //   syncWebAssembly: true
-  // },
-  resolve: {
-    alias: {
-      wasm: path.resolve(__dirname, 'wasm/pkg/index.js')
+    mode: "development",
+    entry: "./src/index.js",
+    devServer: {
+        static: './dist'
     },
-  },
-  module: {
-    rules: [
-      {
-        test: /\.vue$/,
-        use: 'vue-loader'
-      },
-      {
-        test: /.css$/,
-        use: ['style-loader', 'css-loader'],
-      },
-      // {
-      //   test: /\.(png|jpe?g|gif)$/,
-      //   type: 'asset/resource',
-      //   generator: {
-      //     filename: 'assets/img/[hash][ext]'
-      //   }
-      // }
-    ]
-  },
-  plugins: [
-    new CopyPlugin([
-      path.resolve(__dirname, "static")
-    ]),
-
-    new VueLoaderPlugin(),
-    new WasmPackPlugin({
-      crateDirectory: path.resolve(__dirname, 'wasm'),
-      outDir: path.resolve(__dirname, 'wasm', 'pkg'),
+    resolve: {
+        alias: {
+            wasm: path.resolve(__dirname, 'wasm/pkg/index.js')
+        },
+    },
+    output: {
+        filename: 'main.js',
+        path: path.resolve('dist')
+    },
+    module: {
+        rules: [
+            {
+                test: /\.vue$/,
+                use: 'vue-loader'
+            },
+            {
+                test: /.css$/,
+                use: ['style-loader', 'css-loader'],
+            },
+            // {
+            //   test: /\.(png|jpe?g|gif)$/,
+            //   type: 'asset/resource',
+            //   generator: {
+            //     filename: 'assets/img/[hash][ext]'
+            //   }
+            // }
+        ]
+    },
+    plugins: [new HtmlWebpackPlugin({
+        title: "webpack-tauri-wasm",
+        template: 'index.html'
     }),
-  ]
-};
+    new WasmPackPlugin({
+        crateDirectory: path.resolve(__dirname, 'wasm'),
+        outDir: path.resolve(__dirname, 'wasm', 'pkg'),
+    }), new VueLoaderPlugin(),],
+    experiments: {
+        asyncWebAssembly: true,
+        syncWebAssembly: true,
+    }
+}
