@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "target": "es2015",
+        "baseUrl": ".",
+        "module": "ES2015",
+        "moduleResolution": "nodenext",
+        "checkJs": false
+    },
+    "include": ["pkg/*"]
+}

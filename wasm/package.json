@@ -4,6 +4,8 @@
   "description": "wasm打包",
   "main": "pkg/index.js",
   "typings": "pkg/index.d.ts",
+  "types": "./pkg/index.d.ts",
+  "type": "module",
   "directories": {
     "test": "tests"
   },
@@ -11,6 +13,5 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "skybluefeet",
-  "license": "MIT",
-  "types": "./pkg/index.d.ts"
+  "license": "MIT"
 }

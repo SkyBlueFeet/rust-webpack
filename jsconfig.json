@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "target": "es2015",
+        "baseUrl": ".",
+        "module": "nodenext",
+        "moduleResolution": "nodenext",
+        "paths": {
+            "wasm": [
+                "wasm/pkg/index.js"
+            ]
+        },
+        "checkJs": true
+    },
+    "include": ["view/**/*","wasm/**/*"],
+    "exclude": ["node+modules","target","static","wasm/**/*.rs"]
+}

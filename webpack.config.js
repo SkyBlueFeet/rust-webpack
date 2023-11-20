@@ -9,7 +9,7 @@ const dist = path.resolve(__dirname, "dist");
 
 
 /**
- * @type {import("webpack-dev-server").WebpackConfiguration}
+ * @type {any}
  */
 module.exports = {
   mode: "production",
@@ -26,7 +26,11 @@ module.exports = {
   // experiments: {
   //   syncWebAssembly: true
   // },
-  // target: ["web", "es2020"],
+  resolve: {
+    alias: {
+      wasm: path.resolve(__dirname, 'wasm/pkg/index.js')
+    },
+  },
   module: {
     rules: [
       {

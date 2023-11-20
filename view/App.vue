@@ -7,7 +7,7 @@ import { onMounted, ref } from 'vue';
 const msg = ref("Hello World!")
 
 onMounted(async () => {
-    const pkg = await import("../wasm/pkg/index.js");
+    const pkg = await import("wasm");
     const flalt32 = new Float32Array(100)
 
     flalt32.fill(10)
